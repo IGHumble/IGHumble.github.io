@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" /> 
+<!-- Chrome -->
+<meta name="theme-color" content="#ff6600" />
+<!-- Windows Phone -->
+<meta name="msapplication-navbutton-color" content="#4285f4">
+<!-- iOS Safari -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>武大日报平安</title>
+<style type="text/css">
+  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.father{
+    overflow: hidden;
+    position: relative;
+}
+
+.image{
+    content: "";
+    z-index: -1;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+}
+
+.time{
+    flex-direction: column;
+    align-items: center;
+    color:#ffffff;
+    font-size: 5.5vw;
+    left: 50%;  
+    transform: translateX(-50%);
+    top:31.5%;
+    z-index:1 ;
+    position:absolute;
+}
+
+.container{
+    flex-direction: column;
+    color: rgb(130,130,130);
+    font-size: 3.9vw;
+    left:21%;
+    top:37%;
+    line-height: 241%;
+    z-index: 1;
+    position: absolute;
+    overflow: hidden;
+}
+
+.voucher{
+    flex-direction: column;
+    color:#ffffff ;
+    z-index: 4;
+    position: fixed;
+    left:12%;
+    top: 4.2%;
+    font-size: 4.6vw;
+}
+
+.mypic{
+    position: absolute;
+    z-index: 2;
+    left:62.5%;
+    top: 45.6%;
+    width: 22%;
+    padding-bottom: 22%;
+}
+
+.mypic img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.passpord{
+    position: fixed;
+    z-index: 3;
+    left:6.1%;
+    top: 5%;
+    width:2.5%;
+    padding-bottom: 2.5%;
+}
+
+.passpord img{
+    position: absolute;
+    top:0%;
+    left:0;
+    width:100%
+}
+
+.button{
+    position: fixed;
+    z-index: 5;
+    left: 75%;
+    top:4%;
+    width: 23%;
+    padding-bottom: 23%;
+}
+
+.button img{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+}
+
+.mytext{
+    display: flex;
+    position: absolute;
+    z-index: 3;
+    top: 22.8%;
+    left: 50%;  
+    transform: translateX(-50%);
+    color:rgb(0,162,65) ;
+    font-size: 9vw;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+
+<div class="father">
+<img src="https://s1.ax1x.com/2022/03/06/brdTMT.png" width="100%"  class="image">
+  <div class="mytext">
+    <p>允许通行</p>
+  </div>
+  
+  <div class="passpord">
+    <img src="https://s1.ax1x.com/2022/03/06/brJ7rj.png">
+  </div>
+
+  <div class="voucher">
+    <p>通行凭证</p>
+  </div>
+
+  <div class="button">
+    <img src="https://s1.ax1x.com/2022/03/06/brJTMQ.png">
+  </div>
+
+  <div class="mypic">
+    <img src="https://s4.ax1x.com/2022/03/05/b0rGsU.png" >
+  </div>
+
+  <div id="show_time" class="time">  
+    <script>  
+    setInterval("fun(show_time)",1);
+    function fun(timeID){ 
+    var date = new Date();      
+    var m =date.getMonth()+1;     
+    var d = date.getDate();   
+    var h = date.getHours();  
+    var minute = date.getMinutes()  
+    var s = date.getSeconds(); 
+    var sss = date.getMilliseconds() ; 
+    if(m<10){undefined
+    m = "0"+m;
+    }
+    if(d<10){undefined
+    d = "0"+d;
+    }
+    if(h<10){undefined
+    h = "0"+h;
+    }
+    
+    if(minute<10){undefined
+    minute = "0"+minute;
+    }
+    
+    if(s<10){undefined
+    s = "0"+s;
+    }
+    
+    if(sss<10){undefined
+    sss = "00"+sss;
+    }else if(sss<100){undefined
+    sss = "0"+sss;
+    }
+    
+    document.getElementById(timeID.id).innerHTML =  m+"-"+d+"   "+h+":"+minute+":"+s+"."+sss+"  ";
+    //document.write(y+"-"+m+"-"+d+"   "+h+":"+minute+":"+s);  
+    }
+    </script>  
+  </div>
+
+  <div class="container">
+    <form>
+     通行地点：<input type=text style="border-style:none;font-size: 3.9vw;color: rgb(130,130,130);background:none"><br>
+     本人姓名：<input type=text style="border-style:none;font-size: 3.9vw;color: rgb(130,130,130);background:none"><br>
+     人员类别：<input type=text style="border-style:none;font-size: 3.9vw;color: rgb(130,130,130);background:none" value="在校普通本科" readonly><br>
+     单位名称：<input type=text style="border-style:none;font-size: 3.9vw;color: rgb(130,130,130);background:none"><br>
+     证件类型：<input type=text style="border-style:none;font-size: 3.9vw;color: rgb(130,130,130);background:none" value="身份证"  readonly><br>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>
